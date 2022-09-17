@@ -1,3 +1,7 @@
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.predicate: info
+
 server:
   port: 8000
 
@@ -16,7 +20,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"/
+            allowedOrigins: "http://localhost:3000"
             allowedHeaders:
               - "*"
             allowedMethods:
