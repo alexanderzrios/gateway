@@ -17,6 +17,11 @@ spring:
           query-passing: true
           # the following defaults to true anyway, added below to facilitate trying false
           register: true
+        config:
+          data-key: application.yml
+          prefix: config
+          format: yaml
+          default-context: defaults
       default-filters:
         - name: Retry
           args:
@@ -45,4 +50,6 @@ spring:
           uri: lb://gamification
           predicates:
             - Path=/leaders
+  config:
+    import: "optional:consul:"
 
