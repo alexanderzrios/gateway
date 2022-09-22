@@ -4,14 +4,16 @@
 
     <springProperty scope="context" name="rabbitMQHost" source="spring.rabbitmq.host" />
 
-    <appender name="ALEX" class="org.springframework.amqp.rabbit.logback.AmqpAppender">
+    <appender name="AMQP" class="org.springframework.amqp.rabbit.logback.AmqpAppender">
 
         <layout>
-            <pattern>%d{HH:mm:ss.SSS} [trace id: %X{traceId:-}, span id: %X{spanId:-}] [%t] %logger{36} - %msg</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %logger{36} - %msg</pattern>
         </layout>
 
         <applicationId>gateway</applicationId>
         <host>${rabbitMQHost:-localhost}</host>
+        <username>guest</username>
+        <password>guest</password>
         <routingKeyPattern>%property{applicationId}.%p</routingKeyPattern>
         <exchangeName>logs.topic</exchangeName>
         <generateId>true</generateId>
@@ -23,7 +25,6 @@
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="ALEX"/>
+        <appender-ref ref="AMQP"/>
     </root>
-
 </configuration>

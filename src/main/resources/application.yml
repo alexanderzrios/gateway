@@ -1,6 +1,7 @@
 logging:
   level:
-    org.springframework.cloud.gateway.handler.predicate: info
+    org.springframework.cloud.gateway.handler.predicate: INFO
+    org.springframework.amqp.rabbit.connection.CachingConnectionFactory: WARN
 
 server:
   port: 8000

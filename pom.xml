@@ -53,6 +53,11 @@
 			</exclusions>
 		</dependency>
 
+		<dependency> <!-- had to add this dependency so that rabbiot logging would work -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
